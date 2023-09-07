@@ -1,0 +1,131 @@
+
+{NO MORE THAN 34 DAYS BACK IS NECESSARY. 
+		Due to "matureAvgVolume" only stores 34 seperate end-of-the-time-span Volume average of the timespan.  } //Check kc_ atr oscillator of timespan
+
+
+inputs:
+	Starttime( 0700 ),
+	Endtime ( 1100 ),
+	Highvolumecolor( darkred ),
+	Lowvolumecolor( darkred );
+	
+
+Vars: 
+	counter1 (0),
+	sum_of_volume (0),
+	Volumearraysum (0),
+	ii (0),
+	AvgVolume (0),
+	matureAvgVolume (0),matureAvgVolume1 (0),matureAvgVolume2 (0),matureAvgVolume3 (0),matureAvgVolume4 (0),matureAvgVolume5 (0),matureAvgVolume6 (0),matureAvgVolume7 (0),matureAvgVolume8 (0),matureAvgVolume9 (0),
+	matureAvgVolume10 (0),matureAvgVolume11 (0),matureAvgVolume12 (0),matureAvgVolume13 (0),matureAvgVolume14 (0), matureAvgVolume15 (0),matureAvgVolume16 (0),matureAvgVolume17 (0),matureAvgVolume18 (0),
+	matureAvgVolume19 (0),matureAvgVolume20 (0),matureAvgVolume21 (0),matureAvgVolume22 (0),matureAvgVolume23 (0),matureAvgVolume24 (0),matureAvgVolume25 (0),matureAvgVolume26 (0),matureAvgVolume27 (0),
+	matureAvgVolume28 (0),matureAvgVolume29 (0),matureAvgVolume30 (0),matureAvgVolume31 (0),matureAvgVolume32 (0), matureAvgVolume33(0),
+	AvgVolumeCounter(0),
+	AvgOfAvgVolume(0),
+	currentdividedbyhistorical(0),
+	Oscillator(0),
+	Highvolume(0),
+	Lowvolume(0),
+	Volumearray(0);
+	
+If time >= Starttime and time <= Endtime then
+Begin
+	counter1 = Counter1 + 1;
+	Volumearray = Volumearray + (upticks + downticks);
+	
+	AvgVolume = iff(counter1 <> 0, (Volumearray/Counter1), 1);
+
+	
+End;
+
+//storing the last AvgVol of the time span into here.
+If time < starttime or time > endtime then
+Begin
+	If AvgVolume > 0 then 
+	Begin
+			If matureAvgVolume = 0 then matureAvgVolume = AvgVolume else matureAvgVolume = matureAvgVolume;
+			If matureAvgVolume <> 0 and matureAvgVolume <> AvgVolume and matureAvgVolume1 = 0 then matureAvgVolume1 = AvgVolume else matureAvgVolume1 = matureAvgVolume1;
+			If matureAvgVolume <> 0 and matureAvgVolume1 <> 0 and matureAvgVolume1 <> AvgVolume and matureAvgVolume2 = 0 then matureAvgVolume2 = AvgVolume else matureAvgVolume2 = matureAvgVolume2;
+			If matureAvgVolume <> 0 and matureAvgVolume1 <> 0 and matureAvgVolume2 <> 0 and matureAvgVolume2 <> AvgVolume and matureAvgVolume3 = 0 then matureAvgVolume3 = AvgVolume else matureAvgVolume3 = matureAvgVolume3;
+			If matureAvgVolume <> 0 and matureAvgVolume1 <> 0 and matureAvgVolume2 <> 0 and matureAvgVolume3 <> 0 and matureAvgVolume3 <> AvgVolume and matureAvgVolume4 = 0 then matureAvgVolume4 = AvgVolume else matureAvgVolume4 = matureAvgVolume4;
+			If matureAvgVolume <> 0 and matureAvgVolume1 <> 0 and matureAvgVolume2 <> 0 and matureAvgVolume3 <> 0 and matureAvgVolume4 <> 0 and matureAvgVolume4 <> AvgVolume and matureAvgVolume5 = 0 then matureAvgVolume5 = AvgVolume else matureAvgVolume5 = matureAvgVolume5;
+			If matureAvgVolume <> 0 and matureAvgVolume1 <> 0 and matureAvgVolume2 <> 0 and matureAvgVolume3 <> 0 and matureAvgVolume4 <> 0 and matureAvgVolume5 <> 0 and matureAvgVolume5 <> AvgVolume and matureAvgVolume6 = 0 then matureAvgVolume6 = AvgVolume else matureAvgVolume6 = matureAvgVolume6;
+			If matureAvgVolume <> 0 and matureAvgVolume1 <> 0 and matureAvgVolume2 <> 0 and matureAvgVolume3 <> 0 and matureAvgVolume4 <> 0 and matureAvgVolume5 <> 0 and matureAvgVolume6 <> 0 and matureAvgVolume6 <> AvgVolume and matureAvgVolume7 = 0 then matureAvgVolume7 = AvgVolume else matureAvgVolume7 = matureAvgVolume7;
+			If matureAvgVolume <> 0 and matureAvgVolume1 <> 0 and matureAvgVolume2 <> 0 and matureAvgVolume3 <> 0 and matureAvgVolume4 <> 0 and matureAvgVolume5 <> 0 and matureAvgVolume6 <> 0 and matureAvgVolume7 <> 0 and matureAvgVolume7 <> AvgVolume and matureAvgVolume8 = 0 then matureAvgVolume8 = AvgVolume else matureAvgVolume8 = matureAvgVolume8;
+			If matureAvgVolume <> 0 and matureAvgVolume1 <> 0 and matureAvgVolume2 <> 0 and matureAvgVolume3 <> 0 and matureAvgVolume4 <> 0 and matureAvgVolume5 <> 0 and matureAvgVolume6 <> 0 and matureAvgVolume7 <> 0 and matureAvgVolume8 <> 0 and matureAvgVolume8 <> AvgVolume and matureAvgVolume9 = 0 then matureAvgVolume9 = AvgVolume else matureAvgVolume9 = matureAvgVolume9;
+			If matureAvgVolume <> 0 and matureAvgVolume1 <> 0 and matureAvgVolume2 <> 0 and matureAvgVolume3 <> 0 and matureAvgVolume4 <> 0 and matureAvgVolume5 <> 0 and matureAvgVolume6 <> 0 and matureAvgVolume7 <> 0 and matureAvgVolume8 <> 0 and matureAvgVolume9 <> 0 and matureAvgVolume9 <> AvgVolume and matureAvgVolume10 = 0 then matureAvgVolume10 = AvgVolume else matureAvgVolume10 = matureAvgVolume10;
+			If matureAvgVolume <> 0 and matureAvgVolume1 <> 0 and matureAvgVolume2 <> 0 and matureAvgVolume3 <> 0 and matureAvgVolume4 <> 0 and matureAvgVolume5 <> 0 and matureAvgVolume6 <> 0 and matureAvgVolume7 <> 0 and matureAvgVolume8 <> 0 and matureAvgVolume9 <> 0 and matureAvgVolume10 <> 0 and matureAvgVolume10 <> AvgVolume and matureAvgVolume11 = 0 then matureAvgVolume11 = AvgVolume else matureAvgVolume11 = matureAvgVolume11;//
+			If matureAvgVolume <> 0 and matureAvgVolume1 <> 0 and matureAvgVolume2 <> 0 and matureAvgVolume3 <> 0 and matureAvgVolume4 <> 0 and matureAvgVolume5 <> 0 and matureAvgVolume6 <> 0 and matureAvgVolume7 <> 0 and matureAvgVolume8 <> 0 and matureAvgVolume9 <> 0 and matureAvgVolume10 <> 0 and matureAvgVolume11 <> 0 and matureAvgVolume11 <> AvgVolume and matureAvgVolume12 = 0 then matureAvgVolume12 = AvgVolume else matureAvgVolume12 = matureAvgVolume12;
+			If matureAvgVolume <> 0 and matureAvgVolume1 <> 0 and matureAvgVolume2 <> 0 and matureAvgVolume3 <> 0 and matureAvgVolume4 <> 0 and matureAvgVolume5 <> 0 and matureAvgVolume6 <> 0 and matureAvgVolume7 <> 0 and matureAvgVolume8 <> 0 and matureAvgVolume9 <> 0 and matureAvgVolume10 <> 0 and matureAvgVolume11 <> 0 and matureAvgVolume12 <> 0 and matureAvgVolume12 <> AvgVolume and matureAvgVolume13 = 0 then matureAvgVolume13 = AvgVolume else matureAvgVolume13 = matureAvgVolume13;
+			If matureAvgVolume <> 0 and matureAvgVolume1 <> 0 and matureAvgVolume2 <> 0 and matureAvgVolume3 <> 0 and matureAvgVolume4 <> 0 and matureAvgVolume5 <> 0 and matureAvgVolume6 <> 0 and matureAvgVolume7 <> 0 and matureAvgVolume8 <> 0 and matureAvgVolume9 <> 0 and matureAvgVolume10 <> 0 and matureAvgVolume11 <> 0 and matureAvgVolume12 <> 0 and  matureAvgVolume13 <> 0 and matureAvgVolume13 <> AvgVolume and matureAvgVolume14 = 0 then matureAvgVolume14 = AvgVolume else matureAvgVolume14 = matureAvgVolume14;
+			If matureAvgVolume <> 0 and matureAvgVolume1 <> 0 and matureAvgVolume2 <> 0 and matureAvgVolume3 <> 0 and matureAvgVolume4 <> 0 and matureAvgVolume5 <> 0 and matureAvgVolume6 <> 0 and matureAvgVolume7 <> 0 and matureAvgVolume8 <> 0 and matureAvgVolume9 <> 0 and matureAvgVolume10 <> 0 and matureAvgVolume11 <> 0 and matureAvgVolume12 <> 0 and  matureAvgVolume13 <> 0 and matureAvgVolume14 <> 0 and matureAvgVolume14 <> AvgVolume and matureAvgVolume15 = 0 then matureAvgVolume15 = AvgVolume else matureAvgVolume15 = matureAvgVolume15;
+			If matureAvgVolume <> 0 and matureAvgVolume1 <> 0 and matureAvgVolume2 <> 0 and matureAvgVolume3 <> 0 and matureAvgVolume4 <> 0 and matureAvgVolume5 <> 0 and matureAvgVolume6 <> 0 and matureAvgVolume7 <> 0 and matureAvgVolume8 <> 0 and matureAvgVolume9 <> 0 and matureAvgVolume10 <> 0 and matureAvgVolume11 <> 0 and matureAvgVolume12 <> 0 and  matureAvgVolume13 <> 0 and matureAvgVolume14 <> 0 and matureAvgVolume15 <> 0 and matureAvgVolume15 <> AvgVolume and matureAvgVolume16 = 0 then matureAvgVolume16 = AvgVolume else matureAvgVolume16 = matureAvgVolume16;
+			If matureAvgVolume <> 0 and matureAvgVolume1 <> 0 and matureAvgVolume2 <> 0 and matureAvgVolume3 <> 0 and matureAvgVolume4 <> 0 and matureAvgVolume5 <> 0 and matureAvgVolume6 <> 0 and matureAvgVolume7 <> 0 and matureAvgVolume8 <> 0 and matureAvgVolume9 <> 0 and matureAvgVolume10 <> 0 and matureAvgVolume11 <> 0 and matureAvgVolume12 <> 0 and  matureAvgVolume13 <> 0 and matureAvgVolume14 <> 0 and matureAvgVolume15 <> 0 and matureAvgVolume16 <> 0 and matureAvgVolume16 <> AvgVolume and matureAvgVolume17 = 0 then matureAvgVolume17 = AvgVolume else matureAvgVolume17 = matureAvgVolume17;	
+			If matureAvgVolume <> 0 and matureAvgVolume1 <> 0 and matureAvgVolume2 <> 0 and matureAvgVolume3 <> 0 and matureAvgVolume4 <> 0 and matureAvgVolume5 <> 0 and matureAvgVolume6 <> 0 and matureAvgVolume7 <> 0 and matureAvgVolume8 <> 0 and matureAvgVolume9 <> 0 and matureAvgVolume10 <> 0 and matureAvgVolume11 <> 0 and matureAvgVolume12 <> 0 and  matureAvgVolume13 <> 0 and matureAvgVolume14 <> 0 and matureAvgVolume15 <> 0 and matureAvgVolume16 <> 0 and matureAvgVolume17 <> 0 and matureAvgVolume17 <> AvgVolume and matureAvgVolume18 = 0 then matureAvgVolume18 = AvgVolume else matureAvgVolume18 = matureAvgVolume18;
+			If matureAvgVolume <> 0 and matureAvgVolume1 <> 0 and matureAvgVolume2 <> 0 and matureAvgVolume3 <> 0 and matureAvgVolume4 <> 0 and matureAvgVolume5 <> 0 and matureAvgVolume6 <> 0 and matureAvgVolume7 <> 0 and matureAvgVolume8 <> 0 and matureAvgVolume9 <> 0 and matureAvgVolume10 <> 0 and matureAvgVolume11 <> 0 and matureAvgVolume12 <> 0 and  matureAvgVolume13 <> 0 and matureAvgVolume14 <> 0 and matureAvgVolume15 <> 0 and matureAvgVolume16 <> 0 and matureAvgVolume17 <> 0 and matureAvgVolume18 <> 0 and matureAvgVolume18 <> AvgVolume and matureAvgVolume19 = 0 then matureAvgVolume19 = AvgVolume else matureAvgVolume19 = matureAvgVolume19;
+			If matureAvgVolume <> 0 and matureAvgVolume1 <> 0 and matureAvgVolume2 <> 0 and matureAvgVolume3 <> 0 and matureAvgVolume4 <> 0 and matureAvgVolume5 <> 0 and matureAvgVolume6 <> 0 and matureAvgVolume7 <> 0 and matureAvgVolume8 <> 0 and matureAvgVolume9 <> 0 and matureAvgVolume10 <> 0 and matureAvgVolume11 <> 0 and matureAvgVolume12 <> 0 and  matureAvgVolume13 <> 0 and matureAvgVolume14 <> 0 and matureAvgVolume15 <> 0 and matureAvgVolume16 <> 0 and matureAvgVolume17 <> 0 and matureAvgVolume18 <> 0 and matureAvgVolume19 <> 0 and matureAvgVolume19 <> AvgVolume and matureAvgVolume20 = 0 then matureAvgVolume20 = AvgVolume else matureAvgVolume20 = matureAvgVolume20;
+			If matureAvgVolume <> 0 and matureAvgVolume1 <> 0 and matureAvgVolume2 <> 0 and matureAvgVolume3 <> 0 and matureAvgVolume4 <> 0 and matureAvgVolume5 <> 0 and matureAvgVolume6 <> 0 and matureAvgVolume7 <> 0 and matureAvgVolume8 <> 0 and matureAvgVolume9 <> 0 and matureAvgVolume10 <> 0 and matureAvgVolume11 <> 0 and matureAvgVolume12 <> 0 and  matureAvgVolume13 <> 0 and matureAvgVolume14 <> 0 and matureAvgVolume15 <> 0 and matureAvgVolume16 <> 0 and matureAvgVolume17 <> 0 and matureAvgVolume18 <> 0 and matureAvgVolume19 <> 0 and matureAvgVolume20 <> 0 and matureAvgVolume20 <> AvgVolume and matureAvgVolume21 = 0 then matureAvgVolume21 = AvgVolume else matureAvgVolume21 = matureAvgVolume21;
+			If matureAvgVolume <> 0 and matureAvgVolume1 <> 0 and matureAvgVolume2 <> 0 and matureAvgVolume3 <> 0 and matureAvgVolume4 <> 0 and matureAvgVolume5 <> 0 and matureAvgVolume6 <> 0 and matureAvgVolume7 <> 0 and matureAvgVolume8 <> 0 and matureAvgVolume9 <> 0 and matureAvgVolume10 <> 0 and matureAvgVolume11 <> 0 and matureAvgVolume12 <> 0 and  matureAvgVolume13 <> 0 and matureAvgVolume14 <> 0 and matureAvgVolume15 <> 0 and matureAvgVolume16 <> 0 and matureAvgVolume17 <> 0 and matureAvgVolume18 <> 0 and matureAvgVolume19 <> 0 and matureAvgVolume20 <> 0 and matureAvgVolume21 <> 0 and matureAvgVolume21 <> AvgVolume and matureAvgVolume22 = 0 then matureAvgVolume22 = AvgVolume else matureAvgVolume22 = matureAvgVolume22;
+			If matureAvgVolume <> 0 and matureAvgVolume1 <> 0 and matureAvgVolume2 <> 0 and matureAvgVolume3 <> 0 and matureAvgVolume4 <> 0 and matureAvgVolume5 <> 0 and matureAvgVolume6 <> 0 and matureAvgVolume7 <> 0 and matureAvgVolume8 <> 0 and matureAvgVolume9 <> 0 and matureAvgVolume10 <> 0 and matureAvgVolume11 <> 0 and matureAvgVolume12 <> 0 and  matureAvgVolume13 <> 0 and matureAvgVolume14 <> 0 and matureAvgVolume15 <> 0 and matureAvgVolume16 <> 0 and matureAvgVolume17 <> 0 and matureAvgVolume18 <> 0 and matureAvgVolume19 <> 0 and matureAvgVolume20 <> 0 and matureAvgVolume21 <> 0 and matureAvgVolume22 <> 0 and matureAvgVolume22 <> AvgVolume and matureAvgVolume23 = 0 then matureAvgVolume23 = AvgVolume else matureAvgVolume23 = matureAvgVolume23;
+			If matureAvgVolume <> 0 and matureAvgVolume1 <> 0 and matureAvgVolume2 <> 0 and matureAvgVolume3 <> 0 and matureAvgVolume4 <> 0 and matureAvgVolume5 <> 0 and matureAvgVolume6 <> 0 and matureAvgVolume7 <> 0 and matureAvgVolume8 <> 0 and matureAvgVolume9 <> 0 and matureAvgVolume10 <> 0 and matureAvgVolume11 <> 0 and matureAvgVolume12 <> 0 and  matureAvgVolume13 <> 0 and matureAvgVolume14 <> 0 and matureAvgVolume15 <> 0 and matureAvgVolume16 <> 0 and matureAvgVolume17 <> 0 and matureAvgVolume18 <> 0 and matureAvgVolume19 <> 0 and matureAvgVolume20 <> 0 and matureAvgVolume21 <> 0 and matureAvgVolume22 <> 0 and matureAvgVolume23 <> 0 and matureAvgVolume23 <> AvgVolume and matureAvgVolume24 = 0 then matureAvgVolume24 = AvgVolume else matureAvgVolume24 = matureAvgVolume24;
+			If matureAvgVolume <> 0 and matureAvgVolume1 <> 0 and matureAvgVolume2 <> 0 and matureAvgVolume3 <> 0 and matureAvgVolume4 <> 0 and matureAvgVolume5 <> 0 and matureAvgVolume6 <> 0 and matureAvgVolume7 <> 0 and matureAvgVolume8 <> 0 and matureAvgVolume9 <> 0 and matureAvgVolume10 <> 0 and matureAvgVolume11 <> 0 and matureAvgVolume12 <> 0 and  matureAvgVolume13 <> 0 and matureAvgVolume14 <> 0 and matureAvgVolume15 <> 0 and matureAvgVolume16 <> 0 and matureAvgVolume17 <> 0 and matureAvgVolume18 <> 0 and matureAvgVolume19 <> 0 and matureAvgVolume20 <> 0 and matureAvgVolume21 <> 0 and matureAvgVolume22 <> 0 and matureAvgVolume23 <> 0 and matureAvgVolume24 <> 0 and matureAvgVolume24 <> AvgVolume and matureAvgVolume25 = 0 then matureAvgVolume25 = AvgVolume else matureAvgVolume25 = matureAvgVolume25;
+			If matureAvgVolume <> 0 and matureAvgVolume1 <> 0 and matureAvgVolume2 <> 0 and matureAvgVolume3 <> 0 and matureAvgVolume4 <> 0 and matureAvgVolume5 <> 0 and matureAvgVolume6 <> 0 and matureAvgVolume7 <> 0 and matureAvgVolume8 <> 0 and matureAvgVolume9 <> 0 and matureAvgVolume10 <> 0 and matureAvgVolume11 <> 0 and matureAvgVolume12 <> 0 and  matureAvgVolume13 <> 0 and matureAvgVolume14 <> 0 and matureAvgVolume15 <> 0 and matureAvgVolume16 <> 0 and matureAvgVolume17 <> 0 and matureAvgVolume18 <> 0 and matureAvgVolume19 <> 0 and matureAvgVolume20 <> 0 and matureAvgVolume21 <> 0 and matureAvgVolume22 <> 0 and matureAvgVolume23 <> 0 and matureAvgVolume24 <> 0 and matureAvgVolume25 <> 0 and matureAvgVolume25 <> AvgVolume and matureAvgVolume26 = 0 then matureAvgVolume26 = AvgVolume else matureAvgVolume26 = matureAvgVolume26;
+			If matureAvgVolume <> 0 and matureAvgVolume1 <> 0 and matureAvgVolume2 <> 0 and matureAvgVolume3 <> 0 and matureAvgVolume4 <> 0 and matureAvgVolume5 <> 0 and matureAvgVolume6 <> 0 and matureAvgVolume7 <> 0 and matureAvgVolume8 <> 0 and matureAvgVolume9 <> 0 and matureAvgVolume10 <> 0 and matureAvgVolume11 <> 0 and matureAvgVolume12 <> 0 and  matureAvgVolume13 <> 0 and matureAvgVolume14 <> 0 and matureAvgVolume15 <> 0 and matureAvgVolume16 <> 0 and matureAvgVolume17 <> 0 and matureAvgVolume18 <> 0 and matureAvgVolume19 <> 0 and matureAvgVolume20 <> 0 and matureAvgVolume21 <> 0 and matureAvgVolume22 <> 0 and matureAvgVolume23 <> 0 and matureAvgVolume24 <> 0 and matureAvgVolume25 <> 0 and matureAvgVolume26 <> 0 and matureAvgVolume26 <> AvgVolume and matureAvgVolume27 = 0 then matureAvgVolume27 = AvgVolume else matureAvgVolume27 = matureAvgVolume27;
+			If matureAvgVolume <> 0 and matureAvgVolume1 <> 0 and matureAvgVolume2 <> 0 and matureAvgVolume3 <> 0 and matureAvgVolume4 <> 0 and matureAvgVolume5 <> 0 and matureAvgVolume6 <> 0 and matureAvgVolume7 <> 0 and matureAvgVolume8 <> 0 and matureAvgVolume9 <> 0 and matureAvgVolume10 <> 0 and matureAvgVolume11 <> 0 and matureAvgVolume12 <> 0 and  matureAvgVolume13 <> 0 and matureAvgVolume14 <> 0 and matureAvgVolume15 <> 0 and matureAvgVolume16 <> 0 and matureAvgVolume17 <> 0 and matureAvgVolume18 <> 0 and matureAvgVolume19 <> 0 and matureAvgVolume20 <> 0 and matureAvgVolume21 <> 0 and matureAvgVolume22 <> 0 and matureAvgVolume23 <> 0 and matureAvgVolume24 <> 0 and matureAvgVolume25 <> 0 and matureAvgVolume26 <> 0 and matureAvgVolume27 <> 0 and matureAvgVolume27 <> AvgVolume and matureAvgVolume28 = 0 then matureAvgVolume28 = AvgVolume else matureAvgVolume28 = matureAvgVolume28;
+			If matureAvgVolume <> 0 and matureAvgVolume1 <> 0 and matureAvgVolume2 <> 0 and matureAvgVolume3 <> 0 and matureAvgVolume4 <> 0 and matureAvgVolume5 <> 0 and matureAvgVolume6 <> 0 and matureAvgVolume7 <> 0 and matureAvgVolume8 <> 0 and matureAvgVolume9 <> 0 and matureAvgVolume10 <> 0 and matureAvgVolume11 <> 0 and matureAvgVolume12 <> 0 and  matureAvgVolume13 <> 0 and matureAvgVolume14 <> 0 and matureAvgVolume15 <> 0 and matureAvgVolume16 <> 0 and matureAvgVolume17 <> 0 and matureAvgVolume18 <> 0 and matureAvgVolume19 <> 0 and matureAvgVolume20 <> 0 and matureAvgVolume21 <> 0 and matureAvgVolume22 <> 0 and matureAvgVolume23 <> 0 and matureAvgVolume24 <> 0 and matureAvgVolume25 <> 0 and matureAvgVolume26 <> 0 and matureAvgVolume27 <> 0 and matureAvgVolume28 <> 0 and matureAvgVolume28 <> AvgVolume and matureAvgVolume29 = 0 then matureAvgVolume29 = AvgVolume else matureAvgVolume29 = matureAvgVolume29;
+			If matureAvgVolume <> 0 and matureAvgVolume1 <> 0 and matureAvgVolume2 <> 0 and matureAvgVolume3 <> 0 and matureAvgVolume4 <> 0 and matureAvgVolume5 <> 0 and matureAvgVolume6 <> 0 and matureAvgVolume7 <> 0 and matureAvgVolume8 <> 0 and matureAvgVolume9 <> 0 and matureAvgVolume10 <> 0 and matureAvgVolume11 <> 0 and matureAvgVolume12 <> 0 and  matureAvgVolume13 <> 0 and matureAvgVolume14 <> 0 and matureAvgVolume15 <> 0 and matureAvgVolume16 <> 0 and matureAvgVolume17 <> 0 and matureAvgVolume18 <> 0 and matureAvgVolume19 <> 0 and matureAvgVolume20 <> 0 and matureAvgVolume21 <> 0 and matureAvgVolume22 <> 0 and matureAvgVolume23 <> 0 and matureAvgVolume24 <> 0 and matureAvgVolume25 <> 0 and matureAvgVolume26 <> 0 and matureAvgVolume27 <> 0 and matureAvgVolume28 <> 0 and matureAvgVolume29 <> 0 and matureAvgVolume29 <> AvgVolume and matureAvgVolume30 = 0 then matureAvgVolume30 = AvgVolume else matureAvgVolume30 = matureAvgVolume30;
+			If matureAvgVolume <> 0 and matureAvgVolume1 <> 0 and matureAvgVolume2 <> 0 and matureAvgVolume3 <> 0 and matureAvgVolume4 <> 0 and matureAvgVolume5 <> 0 and matureAvgVolume6 <> 0 and matureAvgVolume7 <> 0 and matureAvgVolume8 <> 0 and matureAvgVolume9 <> 0 and matureAvgVolume10 <> 0 and matureAvgVolume11 <> 0 and matureAvgVolume12 <> 0 and  matureAvgVolume13 <> 0 and matureAvgVolume14 <> 0 and matureAvgVolume15 <> 0 and matureAvgVolume16 <> 0 and matureAvgVolume17 <> 0 and matureAvgVolume18 <> 0 and matureAvgVolume19 <> 0 and matureAvgVolume20 <> 0 and matureAvgVolume21 <> 0 and matureAvgVolume22 <> 0 and matureAvgVolume23 <> 0 and matureAvgVolume24 <> 0 and matureAvgVolume25 <> 0 and matureAvgVolume26 <> 0 and matureAvgVolume27 <> 0 and matureAvgVolume28 <> 0 and matureAvgVolume29 <> 0 and matureAvgVolume30 <> 0 and matureAvgVolume30 <> AvgVolume and matureAvgVolume31 = 0 then matureAvgVolume31 = AvgVolume else matureAvgVolume31 = matureAvgVolume31;
+			If matureAvgVolume <> 0 and matureAvgVolume1 <> 0 and matureAvgVolume2 <> 0 and matureAvgVolume3 <> 0 and matureAvgVolume4 <> 0 and matureAvgVolume5 <> 0 and matureAvgVolume6 <> 0 and matureAvgVolume7 <> 0 and matureAvgVolume8 <> 0 and matureAvgVolume9 <> 0 and matureAvgVolume10 <> 0 and matureAvgVolume11 <> 0 and matureAvgVolume12 <> 0 and  matureAvgVolume13 <> 0 and matureAvgVolume14 <> 0 and matureAvgVolume15 <> 0 and matureAvgVolume16 <> 0 and matureAvgVolume17 <> 0 and matureAvgVolume18 <> 0 and matureAvgVolume19 <> 0 and matureAvgVolume20 <> 0 and matureAvgVolume21 <> 0 and matureAvgVolume22 <> 0 and matureAvgVolume23 <> 0 and matureAvgVolume24 <> 0 and matureAvgVolume25 <> 0 and matureAvgVolume26 <> 0 and matureAvgVolume27 <> 0 and matureAvgVolume28 <> 0 and matureAvgVolume29 <> 0 and matureAvgVolume30 <> 0 and matureAvgVolume31 <> 0 and matureAvgVolume31 <> AvgVolume and matureAvgVolume32 = 0 then matureAvgVolume32 = AvgVolume else matureAvgVolume32 = matureAvgVolume32;
+			If matureAvgVolume <> 0 and matureAvgVolume1 <> 0 and matureAvgVolume2 <> 0 and matureAvgVolume3 <> 0 and matureAvgVolume4 <> 0 and matureAvgVolume5 <> 0 and matureAvgVolume6 <> 0 and matureAvgVolume7 <> 0 and matureAvgVolume8 <> 0 and matureAvgVolume9 <> 0 and matureAvgVolume10 <> 0 and matureAvgVolume11 <> 0 and matureAvgVolume12 <> 0 and  matureAvgVolume13 <> 0 and matureAvgVolume14 <> 0 and matureAvgVolume15 <> 0 and matureAvgVolume16 <> 0 and matureAvgVolume17 <> 0 and matureAvgVolume18 <> 0 and matureAvgVolume19 <> 0 and matureAvgVolume20 <> 0 and matureAvgVolume21 <> 0 and matureAvgVolume22 <> 0 and matureAvgVolume23 <> 0 and matureAvgVolume24 <> 0 and matureAvgVolume25 <> 0 and matureAvgVolume26 <> 0 and matureAvgVolume27 <> 0 and matureAvgVolume28 <> 0 and matureAvgVolume29 <> 0 and matureAvgVolume30 <> 0 and matureAvgVolume31 <> 0 and matureAvgVolume32 <> 0 and matureAvgVolume32 <> AvgVolume and matureAvgVolume33 = 0 then matureAvgVolume33 = AvgVolume else matureAvgVolume33 = matureAvgVolume33 ; 
+
+	AvgVolumeCounter = AvgVolumeCounter + 1;
+	End;
+End;
+
+//AVG OF AVGVOLUME CALCULATION using matureavgvolume's
+If AvgVolumeCounter >= 1 then 
+Begin
+	AvgOfAvgVolume = iff(AvgVolumeCounter <> 0, ((matureAvgVolume + matureAvgVolume1 + matureAvgVolume2 + matureAvgVolume3 + matureAvgVolume4 + matureAvgVolume5 + matureAvgVolume6 + matureAvgVolume7 + matureAvgVolume8 + matureAvgVolume9 + matureAvgVolume10
+	+ matureAvgVolume11 + matureAvgVolume12 + matureAvgVolume13 + matureAvgVolume14 + matureAvgVolume15 + matureAvgVolume16 + matureAvgVolume17 + matureAvgVolume18 + matureAvgVolume19 + matureAvgVolume20 
+	+ matureAvgVolume21 + matureAvgVolume22 + matureAvgVolume23 + matureAvgVolume24 + matureAvgVolume25 + matureAvgVolume26 + matureAvgVolume27 + matureAvgVolume28 + matureAvgVolume29 + matureAvgVolume30 + matureAvgVolume31 + matureAvgVolume32 + matureAvgVolume33)/ AvgVolumeCounter), 1);
+End;
+	
+If Time >= starttime and time <= Endtime and AvgVolumeCounter >= 1 then
+Begin
+ 	currentdividedbyhistorical = iff(AvgOfAvgVolume <> 0, (AvgVolume / AvgOfAvgVolume), 1);
+ 		
+//MAKING INTO A 0 TO 100 SCALE
+Oscillator = 50 + (((AvgVolume - AvgOfAvgVolume)/AvgOfAvgVolume) * 50); 
+End;
+
+Begin	
+ 	Plot1( Oscillator, !( "AvgVolume of today compared to Historical AvgVolume" ) );
+ 	
+ 	If time < Starttime or time > endtime then
+ 		setplotcolor(1, transparent) else setplotcolor(1, darkred );
+ 	
+ 	If Oscillator >= Highvolume then
+ 		Setplotcolor(1, Highvolumecolor);
+ 	If Oscillator <= Lowvolume then
+ 		Setplotcolor(1, Lowvolumecolor);
+ 		
+ 	If time < 0845 then setplotcolor(1, transparent);
+ 	
+End;   
+
+{Plot1(AvgVolume);
+Plot2(AvgofAvgVolume);}
+
+	
+If Time < Starttime or time > endtime then
+Begin	
+	sum_of_Volume = 0;
+	counter1 = 0;
+	AvgVolume = 0;
+	Volumearray = 0;
+	setplotcolor(1, transparent);
+	setplotcolor(2, transparent);
+End;
+
+
+
